@@ -19,7 +19,6 @@ export default function RootLayout() {
           },
           headerShadowVisible: false,
           contentStyle: { backgroundColor: colors.bg },
-          headerBackButtonDisplayMode: 'minimal',
         }}
       >
         <Stack.Screen name="index" options={{ title: 'Tip Split' }} />
