@@ -1,4 +1,5 @@
 name: Deploy Tip Split
+# Retrigger after GitHub Pages was enabled (Source: GitHub Actions).
 
 on:
   push:
