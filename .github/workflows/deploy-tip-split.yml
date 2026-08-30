@@ -38,6 +38,8 @@ jobs:
           touch tip-split/dist/.nojekyll
           cp tip-split/dist/index.html tip-split/dist/404.html
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: tip-split/dist
