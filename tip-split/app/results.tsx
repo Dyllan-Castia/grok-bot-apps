@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ScrollView, Share, StyleSheet, Text, View } from 'react-native';
-import * as Clipboard from 'expo-clipboard';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { BigButton } from '@/components/BigButton';
 import { formatPayoutText } from '@/lib/formatPayout';
 import { formatUsd } from '@/lib/money';
+import { copyPayoutText, sharePayoutText } from '@/lib/share';
 import { clearPayoutResult, getPayoutResult } from '@/store/payoutSession';
 import { colors, radius, space, type } from '@/theme';
 
@@ -39,15 +39,14 @@ export default function ResultsScreen() {
   const shareSum = result.people.reduce((sum, person) => sum + person.cents, 0);
 
   async function copyText() {
-    await Clipboard.setStringAsync(text);
+    await copyPayoutText(text);
     setCopied(true);
   }
 
   async function shareText() {
-    try {
-      await Share.share({ message: text });
-    } catch {
-      await copyText();
+    const result = await sharePayoutText(text);
+    if (result === 'copied') {
+      setCopied(true);
     }
   }
 

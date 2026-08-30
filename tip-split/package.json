@@ -29,6 +29,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    "export:web": "expo export --platform web",
     "test": "tsx --test src/lib/split.test.ts src/lib/money.test.ts src/lib/formatPayout.test.ts",
     "typecheck": "tsc --noEmit"
   },
