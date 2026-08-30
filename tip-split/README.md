@@ -12,9 +12,9 @@ From this folder:
 npx expo start
 ```
 
-Install **Expo Go** on the phone, then scan the QR code. The app stays on the device and does not need a login or the internet after the first load.
+Install **Expo Go** from the App Store or Google Play, then scan the QR code. This project uses **Expo SDK 54**, which is the version store Expo Go actually ships. Newer Expo SDKs cannot open in that store app, and there is no update that fixes it.
 
-If Expo Go asks for an SDK update, update the app or start with `npx expo start --go`.
+The app stays on the device and does not need a login or the internet after the first load.
 
 Web preview:
 
